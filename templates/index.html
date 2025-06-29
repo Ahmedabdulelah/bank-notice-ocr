@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تحليل إشعار البنك</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEJao5Q6M8Hk3Kxl3e3KfywWpq6pM5d1t3vJ2jQxj+Q+9L8Rg5xK0DlM6iKxn" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f2f5;
+            padding-top: 80px;
+        }
+        .container {
+            max-width: 500px;
+            padding: 40px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+            margin: 0 auto; /* لتوسيط المحتوى في الصفحة */
+        }
+        .card-header {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            font-size: 1.5em;
+            padding: 15px;
+            border-radius: 8px 8px 0 0;
+        }
+        .form-control {
+            font-size: 1.1em;
+            border-radius: 6px;
+            padding: 10px;
+        }
+        .form-control:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+        }
+        .btn-primary {
+            width: 100%;
+            padding: 12px;
+            font-size: 1.2em;
+            background-color: #007bff;
+            border: none;
+            border-radius: 6px;
+            transition: all 0.3s;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        h1 {
+            color: #007bff;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        /* تخصيص النص عند اختيار الملف */
+        .custom-file-input {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            width: 100%;
+        }
+        .custom-file-input input[type="file"] {
+            font-size: 1em;
+            padding: 8px;
+            width: 100%;
+            height: 45px;
+            opacity: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            cursor: pointer;
+        }
+        .custom-file-label {
+            display: inline-block;
+            width: 100%;
+            height: 45px;
+            line-height: 45px;
+            background-color: #f8f9fa;
+            color: #007bff;
+            border: 1px solid #ced4da;
+            border-radius: 6px;
+            text-align: center;
+        }
+       */
+        .file-chosen {
+            color: #28a745;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            رفع صورة إشعار البنك
+        </div>
+        <div class="card-body">
+            <form action="/extract" method="POST" enctype="multipart/form-data">
+                <div class="form-group mb-4">
+                    <label for="image">اختر صورة الإشعار</label>
+                    <div class="custom-file-input">
+                        <input type="file" class="form-control" name="image" id="image" required>
+                        <label class="custom-file-label" for="image">اختر ملف</label>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">تحليل الصورة</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    // تحديث النص عند اختيار الملف
+    document.getElementById('image').addEventListener('change', function(event) {
+        var fileName = event.target.files[0] ? event.target.files[0].name : 'اختر ملف';
+        var label = event.target.nextElementSibling;
+        label.classList.add('file-chosen');
+        label.innerHTML = fileName;
+    });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gybG1vH2rtYwExfnE4p8E2r3Aza3h+W7pxNds+9p6+Q7G5FhV5D" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-pzjw8f+ua7Kw1TIq0dp/Atg6z6+GzF6g5v5JrX2V2dozFEZ5M2Xf9bU5luLQ5zpx" crossorigin="anonymous"></script>
+
+</body>
+</html>

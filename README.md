@@ -60,7 +60,7 @@ bank-notice-ocr/
    pip install flask pillow openpyxl pytesseract
 
 
-**Run the app**
+3. **Run the app:**
 python app.py
 
 
